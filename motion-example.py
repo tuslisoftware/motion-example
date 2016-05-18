@@ -17,7 +17,7 @@ import os.path
 
 DISPLAY = True
 
-# Set up the camera, and set the capture width and height
+# Set up the camera, and set the capture resolution to 640x480
 capture = cv2.VideoCapture(0)
 capture.set(3, 640)
 capture.set(4, 480)
@@ -25,7 +25,7 @@ capture.set(4, 480)
 # Wait for camera to start
 time.sleep(1.0)
 
-# Get the initial image to create the average image
+# Read an image from the camera
 f, frame = capture.read()
 
 # Convert the image to grayscale
@@ -34,7 +34,6 @@ gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
 # Convert the grayscale image to a multi-dimensional array of 32-bit floats
 avg = np.float32(gray)
 
-# Run until the user presses 'q'
 while True:
 
     # Read a frame from the camera
