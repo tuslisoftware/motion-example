@@ -6,7 +6,8 @@ Author: Tusli Software LLC (info@tuslisoftware.com)
 Written: May 18, 2016
 Updated: May 18, 2016
 
-A demonstration of basic motion detection using OpenCV.
+This is a demonstration of basic motion detection using OpenCV. The algorithm
+used is background subtraction with a running average.
 """
 
 import cv2
@@ -15,6 +16,9 @@ from datetime import datetime
 import numpy as np
 import os.path
 
+# Choose whether or not to display the video
+# Set this to False to run the program in the background, and for better
+# performance
 DISPLAY = True
 
 # Set up the camera, and set the capture resolution to 640x480
@@ -67,8 +71,9 @@ while True:
         if not os.path.isfile(fname):
             cv2.imwrite(fname, frame)
 
-    # For efficiency and to turn in the background, set DISPLAY to False
     if DISPLAY:
+
+        # Show the video
         cv2.imshow("Frame", frame)
 
     # Wait and check if the user pressed 'q'
